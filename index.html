@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Parking Lot System</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-pattern"></div>
+    
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-square-parking"></i>
+                    <div>
+                        <h1>SMART PARKING</h1>
+                        <p>Automated Lot Management</p>
+                    </div>
+                </div>
+                <div class="header-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-car"></i>
+                        <div>
+                            <span class="stat-label">Total Slots</span>
+                            <span class="stat-value" id="totalSlots">0</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <span class="stat-label">Available</span>
+                            <span class="stat-value" id="availableSlots">0</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-ban"></i>
+                        <div>
+                            <span class="stat-label">Occupied</span>
+                            <span class="stat-value" id="occupiedSlots">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-grid">
+            <!-- Left Panel - Actions -->
+            <div class="left-panel">
+                <!-- Add Parking Slot -->
+                <section class="panel-card">
+                    <div class="card-header">
+                        <i class="fas fa-plus-circle"></i>
+                        <h2>Add Parking Slot</h2>
+                    </div>
+                    <form id="addSlotForm" class="form">
+                        <div class="form-group">
+                            <label for="slotNo">
+                                <i class="fas fa-hashtag"></i> Slot Number
+                            </label>
+                            <input type="text" id="slotNo" required placeholder="e.g., A1, B5, P-101">
+                        </div>
+                        <div class="form-row">
+                            <div class="checkbox-wrapper">
+                                <input type="checkbox" id="isCovered" class="custom-checkbox">
+                                <label for="isCovered" class="checkbox-label">
+                                    <i class="fas fa-shield-alt"></i> Covered Parking
+                                </label>
+                            </div>
+                            <div class="checkbox-wrapper">
+                                <input type="checkbox" id="isEVCharging" class="custom-checkbox">
+                                <label for="isEVCharging" class="checkbox-label">
+                                    <i class="fas fa-charging-station"></i> EV Charging
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Add Slot
+                        </button>
+                    </form>
+                </section>
+
+                <!-- Park Vehicle -->
+                <section class="panel-card">
+                    <div class="card-header">
+                        <i class="fas fa-car-side"></i>
+                        <h2>Park Vehicle</h2>
+                    </div>
+                    <form id="parkVehicleForm" class="form">
+                        <div class="form-row">
+                            <div class="checkbox-wrapper">
+                                <input type="checkbox" id="needsCover" class="custom-checkbox">
+                                <label for="needsCover" class="checkbox-label">
+                                    <i class="fas fa-shield-alt"></i> Needs Cover
+                                </label>
+                            </div>
+                            <div class="checkbox-wrapper">
+                                <input type="checkbox" id="needsEV" class="custom-checkbox">
+                                <label for="needsEV" class="checkbox-label">
+                                    <i class="fas fa-charging-station"></i> Needs EV
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-check-circle"></i> Find & Park
+                        </button>
+                    </form>
+                </section>
+
+                <!-- Result Display -->
+                <section class="panel-card result-card" id="resultCard" style="display: none;">
+                    <div id="resultContent"></div>
+                </section>
+            </div>
+
+            <!-- Right Panel - Parking Grid -->
+            <div class="right-panel">
+                <section class="panel-card slots-container">
+                    <div class="card-header">
+                        <i class="fas fa-th"></i>
+                        <h2>Parking Slots</h2>
+                        <div class="view-controls">
+                            <button class="view-btn active" data-view="grid" title="Grid View">
+                                <i class="fas fa-th"></i>
+                            </button>
+                            <button class="view-btn" data-view="list" title="List View">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="slotsDisplay" class="slots-grid">
+                        <div class="empty-state">
+                            <i class="fas fa-inbox"></i>
+                            <p>No parking slots added yet</p>
+                            <span>Add your first slot to get started</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
