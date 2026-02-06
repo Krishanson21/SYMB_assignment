@@ -52,7 +52,6 @@ body {
     z-index: 1;
 }
 
-/* Header Styles */
 .header {
     background: var(--card-bg);
     border: 1px solid var(--border);
@@ -163,7 +162,7 @@ body {
     color: var(--primary);
 }
 
-/* Main Grid Layout */
+
 .main-grid {
     display: grid;
     grid-template-columns: 450px 1fr;
@@ -171,7 +170,7 @@ body {
     align-items: start;
 }
 
-/* Panel Cards */
+
 .panel-card {
     background: var(--card-bg);
     border: 1px solid var(--border);
@@ -235,7 +234,7 @@ body {
     color: var(--dark-bg);
 }
 
-/* Form Styles */
+
 .form {
     padding: 25px;
 }
@@ -327,7 +326,7 @@ body {
     color: var(--primary);
 }
 
-/* Buttons */
+
 .btn {
     width: 100%;
     padding: 14px 24px;
@@ -382,7 +381,7 @@ body {
     box-shadow: 0 8px 30px rgba(255, 51, 102, 0.5);
 }
 
-/* Result Card */
+
 .result-card {
     animation: slideIn 0.4s ease-out;
 }
@@ -454,7 +453,7 @@ body {
     color: var(--danger);
 }
 
-/* Slots Display */
+
 .slots-grid {
     padding: 25px;
     display: grid;
@@ -508,7 +507,6 @@ body {
     font-size: 0.9rem;
 }
 
-/* Parking Slot Card */
 .slot-card {
     background: var(--panel-bg);
     border: 2px solid var(--border);
@@ -618,7 +616,6 @@ body {
     flex: 1;
 }
 
-/* Responsive Design */
 @media (max-width: 1200px) {
     .main-grid {
         grid-template-columns: 1fr;
